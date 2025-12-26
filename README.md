@@ -30,6 +30,7 @@ FitTrack Pro is a feature-rich, responsive web application designed for personal
 ├── design.css       # Styles, themes, and visual effects
 ├── script.js        # Core application logic and data management
 └── picture/         # Assets folder for background images
+```
 
 ## 📝 Usage
 * Log a Workout: Fill in the "Log New Workout" form and click Submit. Your progress bar will update automatically.
