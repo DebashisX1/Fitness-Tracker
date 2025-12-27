@@ -11,6 +11,7 @@
    --optbg: rgb(0, 0, 0);
    --opttext:white;
    --shadowcol: rgba(0, 255, 136, 0.3);
+   --buttonbg:#00ff8814;
 }
 
 body.light-mode {                   /* Interface in light theme*/
@@ -24,6 +25,7 @@ body.light-mode {                   /* Interface in light theme*/
    --optbg: rgba(30, 30, 30, 0.3);
    --opttext: black;
    --shadowcol: #132bc7;
+   --buttonbg: #ffffff14;
 }
 
 * {                                 /*Universal properties*/
@@ -98,7 +100,8 @@ body {                              /*Properties of body part*/
    justify-content: space-between;
    align-items: center;
    margin-bottom: 30px;
-   width: 100vh;
+   padding-bottom: 10px;
+   border-bottom: 1px solid var(--bordercol);
 }
 
 .goalcard {                      /*Goalcard design*/
@@ -186,7 +189,7 @@ display: flex;
 .calculateBMI {
    width: 100%;
    padding: 12px;
-   background-color: #00ff8814;
+   background-color: var(--buttonbg);
    border: 1px solid var(--greencol);
    color: var(--textcol);
    border-radius: 5px;
