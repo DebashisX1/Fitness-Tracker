@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Fitness Tracker </title>
+   <link rel="stylesheet" href="design.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+   <link rel="icon" type="image" href="./picture/icon.png">
+</head>
+
+<body>
+   <nav class="navbar">
+      <div class="navigation_bar">
+         <h1 class="logo">Fitness <span>Tracker</span></h1>
+         <ul class="navtag">
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">History</a></li>
+            <li><a href="#">Resources</a></li>
+            <li><a href="#">Profile</a></li>
+         </ul>
+      </div>
+      <div class="theme">
+         <span class="except">Theme</span>
+         <button id="themetoggle" class="themebutton" onclick="toggleTheme()">
+            <i class="fas fa-moon" id="themeicon"></i>
+         </button>
+      </div>
+   </nav>
+
+   <main class="dashboard">
+      <header class="header">
+         <div>
+            <h2 class="except">Welcome Back User</h2>
+            <p class="except">Here's your fitness tracking report</p>
+         </div>
+
+         <div class="goalcard">
+            <div class="goalinfo">
+               <span>Daily Goal</span>
+               <strong class="percent" id="goalpercent">0%</strong>
+            </div>
+            <div class="progressbar">
+               <div class="progress" id="goalbar" style="width: 0%;"></div>
+            </div>
+         </div>
+      </header>
+
+         <section class="items">
+            <div class="workoutcard">
+               <h3><i class="fas fa-user-circle"></i> Log New Workout</h3>
+               <br>
+               <form id="workoutform">
+                  <div class="workout">
+                     <label for="excercise">Exercise name</label>
+                     <input type="text" id="excercise" placeholder="e.g.: Pushup" required>
+                  </div>
+
+                     <div class="workoutdetail">
+                        <label for="sets" class="detailtext">Sets</label>
+                        <input type="number" class="detail" id="sets" placeholder="0" min="1" required>
+
+                        <label for="reps" class="detailtext">Reps</label>
+                        <input type="number" class="detail" id="reps" placeholder="0" min="1" required>
+                     </div>
+
+                  <div class="category">
+                     <label for="category">Category</label>
+                     <select id="category">
+                        <option class="option" value="Strength">Strength training</option>
+                        <option class="option" value="Cardio">Cardio</option>
+                        <option class="option" value="Flexibility">Flexibility</option>
+                     </select>
+                  </div>
+                  <button type="submit" class="submit">Submit</button>
+               </form>
+            </div>
+
+            
+            <div class="history">
+               <div class="header" style="padding: 0; width: 100%;">
+                  <h3><i class="fas fa-history"></i> Recent History</h3>
+                  <span class="count-badge">Total: <span id="total-count">0</span></span>
+               </div>
+               <div id="pastworkouts">
+               </div>
+            </div>
+
+            <div class="profilecard">
+               <h3><i class="fas fa-heartbeat"></i> BMI Calculator</h3>
+               <br>
+               <div class="bmi">
+                  <div class="bmidata">
+                     <label for="weight">Weight (kg)</label>
+                     <input type="number" id="weight" min="1" placeholder="e.g. 70">
+            
+                     <label for="height">Height (cm)</label>
+                     <input type="number" id="height" min="1" placeholder="e.g. 175">
+                  </div>
+                  <button type="button" class="calculateBMI" onclick="calculateBMI()">Calculate BMI</button>
+            
+                  <div class="bmi-display" style="margin-top: 15px; text-align: center;">
+                     <span id="bmi-value" style="font-size: 2rem; font-weight: bold;">BMI</span>
+                     <p id="bmi-status" style="font-size: 0.8rem; color: var(--textcol2);">BMI Value will appear here</p>
+                  </div>
+               </div>
+            </div>
+
+            <div class="habitcard">
+               <h3><i class="fas fa-check-circle"></i> Daily Habits</h3>
+            
+               <div class="water-tracker">
+                  <p>Water Intake: <span id="water-count">0</span>/8 Glasses</p>
+                  <div class="water-controls">
+                     <button onclick="changeWater(-1)" class="headbutton"><i class="fas fa-minus"></i></button>
+                     <button onclick="changeWater(1)" class="headbutton"><i class="fas fa-plus"></i></button>
+                  </div>
+               </div>
+            
+               <hr style="margin: 15px 0; border: 0; border-top: 1px solid var(--bordercol);">
+            
+               <div class="habit-list">
+                  <p class="habitmaintain">Habits maintained</p>
+                  <div class="habit-item">
+                     <input type="checkbox" id="habit1" onchange="toggleHabit('habit1')">
+                     <label for="habit1">7+ Hours Sleep</label>
+                  </div>
+                  <div class="habit-item">
+                     <input type="checkbox" id="habit2" onchange="toggleHabit('habit2')">
+                     <label for="habit2">Healthy Meals</label>
+                  </div>
+                  <div class="habit-item">
+                     <input type="checkbox" id="habit3" onchange="toggleHabit('habit3')">
+                     <label for="habit3">No Sugary Drinks</label>
+                  </div>
+                  <div class="habit-item">
+                     <input type="checkbox" id="habit4" onchange="toggleHabit('habit4')">
+                     <label for="habit4">Do atleast 5 workout</label>
+                  </div>
+               </div>      
+            </div>
+         </section>
+   </main>
+
+   <footer class="footer">
+      <div>
+         <p class="except">&copy; 2025 FitTrack Dashboard | Created by Debashis Dey</p>
+      </div>
+      <div class="social">
+         <a href="https://www.instagram.com/debashis_x1/" target="_blank" class="social"><i class="fab fa-instagram" style="font-size: 30px; margin: 10px; color: white;"></i></a>
+         <a href="https://github.com/DebashisX1/" target="_blank" class="social"><i class="fab fa-github" style="font-size: 30px; margin: 10px; color: white;"></i></a>
+         <a href="https://wa.me/919339619072" target="_blank" class="social"><i class="fab fa-whatsapp" style="font-size: 30px; margin: 10px; color: white;"></i></a>
+      </div>
+
+   </footer>
+
+   <script src="script.js"></script>
+</body>
+
+</html>
